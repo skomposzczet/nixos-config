@@ -59,7 +59,6 @@
 
   services.xserver = {
     enable = true;
-
   
     displayManager = {
         gdm.enable = true;
@@ -134,6 +133,16 @@
     package = pkgs.i3lock-color;
   };
 
+  services.xserver.xautolock = {
+    enable = true;
+    time = 10;
+    locker = "${pkgs.bash}/bin/bash /home/d3rfnam/.nixos/lock.sh ${pkgs.i3lock-color}/bin/i3lock-color";
+    extraOptions = [
+      "-lockaftersleep"
+      "-detectsleep"
+    ];
+  };
+
   services.physlock = {
     enable = true;
     allowAnyUser = true;
@@ -184,18 +193,19 @@
 
     # gpg
     gnupg
-    pinentry-rofi
-    pinentry-gnome
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  #   pinentryFlavor = "gnome3";
-  # };
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+    pinentryFlavor = null;
+    settings = {
+       pinentry-program = "${pkgs.pinentry-rofi}/bin/pinentry-rofi";
+    };
+  };
 
   fonts.packages = with pkgs; [
       (nerdfonts.override { fonts = [ "UbuntuMono" ]; })
@@ -205,6 +215,7 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  programs.ssh.enableAskPassword = false;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

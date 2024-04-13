@@ -4,11 +4,16 @@
 
   inputs = {
     nixpkgs.url = "github:NixOs/nixpkgs/nixos-23.11";
+    nixpkgs-unstable.url = "github:NixOs/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     skomposzczet-nvim.url = "github:skomposzczet/nixvim-config";
+    alacritty-theme = {
+      url = "github:alexghr/alacritty-theme.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -19,11 +24,20 @@
   let
     lib = nixpkgs.lib;
     system = "x86_64-linux";
+    overlay-unstable = final: prev: {
+      unstable = inputs.nixpkgs-unstable.legacyPackages.${prev.system};
+    };
   in {
     nixosConfigurations = {
       hyperion = lib.nixosSystem {
         modules = [ 
           ./hosts/hyperion/configuration.nix
+          ({ pkgs, ...}: {
+            nixpkgs.overlays = [ 
+              inputs.alacritty-theme.overlays.default
+              overlay-unstable
+            ];
+          })
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
