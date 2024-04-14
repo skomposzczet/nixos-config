@@ -24,20 +24,12 @@
   let
     lib = nixpkgs.lib;
     system = "x86_64-linux";
-    overlay-unstable = final: prev: {
-      unstable = inputs.nixpkgs-unstable.legacyPackages.${prev.system};
-    };
   in {
     nixosConfigurations = {
       hyperion = lib.nixosSystem {
         modules = [ 
           ./hosts/hyperion/configuration.nix
-          ({ pkgs, ...}: {
-            nixpkgs.overlays = [ 
-              inputs.alacritty-theme.overlays.default
-              overlay-unstable
-            ];
-          })
+          (import ./overlays { inherit inputs; })
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;

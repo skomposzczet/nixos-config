@@ -8,7 +8,6 @@
     # nvim
     inputs.skomposzczet-nvim.packages.${system}.default
 
-
     # apps
     neofetch
     gnome.gnome-tweaks
@@ -43,6 +42,7 @@
     # wm
     picom
     acpi
+    rofi-power-menu
 
     # archives
     zip
@@ -62,8 +62,11 @@
 
   programs.rofi = {
     enable = true;
-    theme = "${pkgs.catppuccin}/rofi/catppuccin-macchiato.rasi";
-    plugins = [ pkgs.rofi-calc ];
+    theme = "${pkgs.catppuccin}/rofi/catppuccin-mocha.rasi";
+    plugins = [ 
+      pkgs.rofi-calc
+    ];
+    pass.enable = true;
   };
 
   programs.git = {

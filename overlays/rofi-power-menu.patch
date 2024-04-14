@@ -1,0 +1,30 @@
+diff --git a/rofi-power-menu b/rofi-power-menu
+index 13e17e3..c816047 100755
+--- a/rofi-power-menu
++++ b/rofi-power-menu
+@@ -16,7 +16,7 @@ set -u
+ all=(shutdown reboot suspend hibernate logout lockscreen)
+ 
+ # By default, show all (i.e., just copy the array)
+-show=("${all[@]}")
++show=(suspend shutdown reboot lockscreen logout)
+ 
+ declare -A texts
+ texts[lockscreen]="lock screen"
+@@ -31,14 +31,14 @@ declare -A icons
+ icons[lockscreen]="\Uf033e"
+ icons[switchuser]="\Uf0019"
+ icons[logout]="\Uf0343"
+-icons[suspend]="\Uf04b2"
++icons[suspend]="\U23fe"
+ icons[hibernate]="\Uf02ca"
+ icons[reboot]="\Uf0709"
+ icons[shutdown]="\Uf0425"
+ icons[cancel]="\Uf0156"
+ 
+ declare -A actions
+-actions[lockscreen]="loginctl lock-session ${XDG_SESSION_ID-}"
++actions[lockscreen]="xautolock -locknow"
+ #actions[switchuser]="???"
+ actions[logout]="loginctl terminate-session ${XDG_SESSION_ID-}"
+ actions[suspend]="systemctl suspend"
