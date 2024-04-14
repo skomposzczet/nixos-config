@@ -43,6 +43,7 @@
     picom
     acpi
     rofi-power-menu
+    gscreenshot
 
     # archives
     zip

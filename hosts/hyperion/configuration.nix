@@ -5,10 +5,9 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   nix.settings.auto-optimise-store = true;
 
@@ -23,13 +22,8 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
   networking.networkmanager.enable = true;
-
-  # Set your time zone.
   time.timeZone = "Europe/Warsaw";
-
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {
@@ -43,13 +37,6 @@
     LC_TELEPHONE = "pl_PL.UTF-8";
     LC_TIME = "pl_PL.UTF-8";
   };
-
-  # # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-  
-  # # Enable the GNOME Desktop Environment.
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
 
   swapDevices = [
     {
@@ -90,7 +77,6 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   hardware.opengl.enable = true;
@@ -149,7 +135,6 @@
     lockMessage = "locked :)";
   };
   
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.d3rfnam = {
     isNormalUser = true;
     description = "d3rfnam";
@@ -157,11 +142,9 @@
     shell = pkgs.zsh;
     packages = with pkgs; [
       firefox
-    #  thunderbird
     ];
   };
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   nixpkgs.config.permittedInsecurePackages = [
@@ -172,7 +155,6 @@
 
   xdg.portal = {
     enable = true;
-    #extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     wlr.enable = true;
   };
 
@@ -180,40 +162,30 @@
     enable = true;
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     xautolock
     vim
     wget
-    wl-clipboard 
+    xclip
     file
     pavucontrol
     ntfs3g
 
     # gpg
     gnupg
+    pinentry-gnome
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
-    pinentryFlavor = null;
-    settings = {
-       pinentry-program = "${pkgs.pinentry-rofi}/bin/pinentry-rofi";
-    };
+    pinentryFlavor = "gnome3";
   };
 
   fonts.packages = with pkgs; [
       (nerdfonts.override { fonts = [ "UbuntuMono" ]; })
   ];
 
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
   services.openssh.enable = true;
   programs.ssh.enableAskPassword = false;
 
