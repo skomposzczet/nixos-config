@@ -186,6 +186,13 @@
     "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
     "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
   };
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    name = "Catppuccin-Mocha-Rosewater-Cursors";
+    package = pkgs.catppuccin-cursors.mochaRosewater;
+    size = 16;
+  };
   
   home.stateVersion = "23.11";
   programs.home-manager.enable = true;
