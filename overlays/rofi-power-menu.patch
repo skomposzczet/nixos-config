@@ -1,5 +1,5 @@
 diff --git a/rofi-power-menu b/rofi-power-menu
-index 13e17e3..c816047 100755
+index 13e17e3..f2666b5 100755
 --- a/rofi-power-menu
 +++ b/rofi-power-menu
 @@ -16,7 +16,7 @@ set -u
@@ -11,7 +11,7 @@ index 13e17e3..c816047 100755
  
  declare -A texts
  texts[lockscreen]="lock screen"
-@@ -31,14 +31,14 @@ declare -A icons
+@@ -31,7 +31,7 @@ declare -A icons
  icons[lockscreen]="\Uf033e"
  icons[switchuser]="\Uf0019"
  icons[logout]="\Uf0343"
@@ -20,11 +20,12 @@ index 13e17e3..c816047 100755
  icons[hibernate]="\Uf02ca"
  icons[reboot]="\Uf0709"
  icons[shutdown]="\Uf0425"
- icons[cancel]="\Uf0156"
- 
+@@ -40,7 +40,7 @@ icons[cancel]="\Uf0156"
  declare -A actions
--actions[lockscreen]="loginctl lock-session ${XDG_SESSION_ID-}"
-+actions[lockscreen]="xautolock -locknow"
+ actions[lockscreen]="loginctl lock-session ${XDG_SESSION_ID-}"
  #actions[switchuser]="???"
- actions[logout]="loginctl terminate-session ${XDG_SESSION_ID-}"
+-actions[logout]="loginctl terminate-session ${XDG_SESSION_ID-}"
++actions[logout]="; echo 'awesome.quit()' | awesome-client"
  actions[suspend]="systemctl suspend"
+ actions[hibernate]="systemctl hibernate"
+ actions[reboot]="systemctl reboot"

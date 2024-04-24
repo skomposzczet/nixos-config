@@ -119,22 +119,11 @@
     package = pkgs.i3lock-color;
   };
 
-  services.xserver.xautolock = {
+  programs.xss-lock = {
     enable = true;
-    time = 10;
-    locker = "${pkgs.bash}/bin/bash /home/d3rfnam/.nixos/lock.sh ${pkgs.i3lock-color}/bin/i3lock-color";
-    extraOptions = [
-      "-lockaftersleep"
-      "-detectsleep"
-    ];
+    lockerCommand = "${pkgs.bash}/bin/bash /home/d3rfnam/.nixos/lock.sh ${pkgs.i3lock-color}/bin/i3lock-color";
   };
 
-  services.physlock = {
-    enable = true;
-    allowAnyUser = true;
-    lockMessage = "locked :)";
-  };
-  
   users.users.d3rfnam = {
     isNormalUser = true;
     description = "d3rfnam";
@@ -163,7 +152,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    xautolock
     vim
     wget
     xclip
