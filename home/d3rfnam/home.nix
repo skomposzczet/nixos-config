@@ -138,7 +138,6 @@
       detect-trasient = true;
       detect-client-leader = true;
       xrender-sync-fence = true;
-      refresh-rate = 75;
     };
 
     shadow = false;
@@ -149,6 +148,9 @@
       "90:class_g = 'Alacritty' && focused"
       "60:class_g = 'Alacritty' && !focused"
     ];
+
+    fade = true;
+    fadeDelta = 5;
 
     settings = {
       frame-opacity = 0.8;
