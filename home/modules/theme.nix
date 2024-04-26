@@ -40,4 +40,10 @@
     package = pkgs.catppuccin-cursors.mochaRosewater;
     size = 16;
   };
+
+  qt = {
+    enable = true;
+    platformTheme = "gtk3";
+    style.name = "gtk2";
+  };
 }
