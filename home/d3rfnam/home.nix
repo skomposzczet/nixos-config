@@ -14,6 +14,8 @@
     pass
     obsidian
     qbittorrent
+    calibre
+    planify
     
     # games
     dwarf-fortress-packages.dwarf-fortress-full
@@ -32,7 +34,6 @@
     pciutils
     usbutils
     sysstat
-    toybox
 
     # system call monitoring
     strace
