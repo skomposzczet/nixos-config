@@ -2,25 +2,6 @@
 
 I3LOCK=$1
 
-get_active_id() {
-    xprop -root | awk '$1 ~ /_NET_ACTIVE_WINDOW/ { print $5 }'
-}
-
-is_fullscreen() {
-    is=$(xprop -id $1 | grep _NET_WM_STATE | grep FULLSCREEN | wc -l)
-    return $is
-}
-
-should_lock() {
-    id=$(get_active_id)
-
-    if is_fullscreen $id; then
-        return 0
-    else
-        return 1
-    fi
-}
-
 lock() {
     color="f5e0dc"
 
@@ -34,6 +15,4 @@ lock() {
         --radius=15 --verif-text="" --wrong-text="" --noinput-text=""
 }
 
-if should_lock; then
-    lock
-fi
+lock
