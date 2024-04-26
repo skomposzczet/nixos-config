@@ -5,7 +5,7 @@ I3LOCK=$1
 lock() {
     color="f5e0dc"
 
-    ${I3LOCK} -i $HOME/Pictures/Wallpapers/edgerunners_blur.jpg -F --composite \
+    ${I3LOCK} -i $HOME/.config/wallpaper/wallpaper_blur.png -F --composite \
         -S 0 --force-clock --time-pos="x+960:y+330" --time-color=${color} --date-color=${color} \
         --inside-color=373445ff \
         --ring-color=ffffffff --line-uses-inside \

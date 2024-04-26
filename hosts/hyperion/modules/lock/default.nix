@@ -11,6 +11,6 @@
 
   programs.xss-lock = {
     enable = true;
-    lockerCommand = "${pkgs.bash}/bin/bash /home/d3rfnam/.nixos/lock.sh ${pkgs.i3lock-color}/bin/i3lock-color";
+    lockerCommand = "${pkgs.bash}/bin/bash $HOME/.config/lock/lock.sh ${pkgs.i3lock-color}/bin/i3lock-color";
   };
 }
