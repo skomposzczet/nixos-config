@@ -3,7 +3,7 @@
 {
   imports = [
     ../modules/awesomewm
-    ../modules/alacritty.nix
+    ../modules/alacritty
     ../modules/tmux.nix
     ../modules/picom.nix
     ../modules/packages.nix

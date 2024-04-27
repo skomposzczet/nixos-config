@@ -1,0 +1,16 @@
+import = [
+  "/nix/store/1j991y7hap742hv18v0b2l5qiwsdhxvg-catppuccin_mocha"
+]
+
+[env]
+WINIT_X11_SCALE_FACTOR = "1"
+
+[font]
+size = 12
+
+  [font.normal]
+  family = "UbuntuMono Nerd Font"
+  style = "Regular"
+
+[selection]
+save_to_clipboard = true
