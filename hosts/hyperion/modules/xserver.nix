@@ -4,14 +4,12 @@
   pkgs,
   ...
 }: {
+  imports = [
+    ./sddm
+  ];
   services.xserver = {
     enable = true;
   
-    displayManager = {
-        gdm.enable = true;
-        defaultSession = "none+awesome";
-    };
-
     windowManager.awesome = {
       enable = true;
       luaModules = with pkgs.luaPackages; [
