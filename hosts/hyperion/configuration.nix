@@ -2,9 +2,9 @@
 
 {
   imports = [
+    modules/xserver
     modules/global.nix
     modules/virtualisation.nix
-    modules/xserver.nix
     modules/media.nix
     modules/gpg.nix
     modules/ssh.nix
