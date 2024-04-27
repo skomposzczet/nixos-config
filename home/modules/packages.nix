@@ -15,6 +15,7 @@
     qbittorrent
     calibre
     planify
+    gnome.nautilus
     
     # games
     dwarf-fortress-packages.dwarf-fortress-full
@@ -22,6 +23,10 @@
     # media
     mpv
     smplayer
+    gedit
+    evince
+    loupe
+    amberol
 
     # cmd
     zsh
@@ -33,6 +38,7 @@
     pciutils
     usbutils
     sysstat
+    tree
 
     # system call monitoring
     strace
