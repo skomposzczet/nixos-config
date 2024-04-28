@@ -2,18 +2,18 @@
 
 {
   imports = [
-    modules/xserver
-    modules/global.nix
-    modules/virtualisation.nix
-    modules/media.nix
-    modules/gpg.nix
-    modules/ssh.nix
-    modules/lock/default.nix
-    modules/shell.nix
-    modules/fonts.nix
-    modules/packages.nix
-    modules/ssh.nix
-    modules/users/d3rfnam.nix
+    ../modules/xserver
+    ../modules/global.nix
+    ../modules/virtualisation.nix
+    ../modules/media.nix
+    ../modules/gpg.nix
+    ../modules/ssh.nix
+    ../modules/lock/default.nix
+    ../modules/shell.nix
+    ../modules/fonts.nix
+    ../modules/packages.nix
+    ../modules/ssh.nix
+    ../modules/users/d3rfnam.nix
     ./hardware-configuration.nix
   ];
 
