@@ -23,13 +23,7 @@
   networking.hostName = "hyperion";
   networking.networkmanager.enable = true;
 
-  swapDevices = [
-    {
-      device = "/dev/nvme0n1p7";
-    }
-  ];
-
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "23.11";
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
