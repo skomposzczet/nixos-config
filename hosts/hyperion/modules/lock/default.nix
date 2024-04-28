@@ -3,7 +3,10 @@
   outputs,
   pkgs,
   ...
-}: {
+}: 
+let
+  nix-i3-lock = (import ./lock-script.nix { inherit pkgs; });
+in {
   programs.i3lock = {
     enable = true;
     package = pkgs.i3lock-color;
@@ -11,6 +14,6 @@
 
   programs.xss-lock = {
     enable = true;
-    lockerCommand = "${pkgs.bash}/bin/bash $HOME/.config/lock/lock.sh ${pkgs.i3lock-color}/bin/i3lock-color";
+    lockerCommand = "${nix-i3-lock}/bin/nix-i3-lock";
   };
 }
