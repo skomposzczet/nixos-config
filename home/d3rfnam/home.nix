@@ -10,6 +10,7 @@
     ../modules/rofi.nix
     ../modules/theme.nix
     ../modules/git.nix
+    ../modules/wezterm.nix
   ];
 
   home.username = "d3rfnam";
