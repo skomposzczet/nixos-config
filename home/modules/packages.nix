@@ -8,7 +8,6 @@
     inputs.skomposzczet-nvim.packages.${system}.default
 
     # apps
-    neofetch
     gnome.gnome-tweaks
     pass
     obsidian
