@@ -21,6 +21,8 @@
           top = 0,
         },
 
+        warn_about_missing_glyphs = false,
+
         default_prog = { "zsh" },
     }
     '';

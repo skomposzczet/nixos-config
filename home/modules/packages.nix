@@ -15,6 +15,7 @@
     calibre
     planify
     gnome.nautilus
+    gnome.eog
     
     # games
     dwarf-fortress-packages.dwarf-fortress-full
@@ -22,7 +23,7 @@
     # media
     mpv
     smplayer
-    gedit
+    gnome-text-editor
     evince
     loupe
     amberol
@@ -33,11 +34,11 @@
 
     # tools
     imagemagick
-    networkmanagerapplet
     pciutils
     usbutils
     sysstat
     tree
+    ripgrep
 
     # system call monitoring
     strace
@@ -45,6 +46,8 @@
     lsof
 
     # wm
+    networkmanagerapplet
+    volctl
     picom
     acpi
     rofi-power-menu

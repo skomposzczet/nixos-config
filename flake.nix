@@ -1,6 +1,5 @@
 {
-
-  description = "Cool flake";
+  description = "skomposzczet";
 
   inputs = {
     nixpkgs.url = "github:NixOs/nixpkgs/nixos-23.11";

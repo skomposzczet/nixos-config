@@ -27,7 +27,7 @@
     fadeDelta = 5;
 
     settings = {
-      frame-opacity = 0.8;
+      frame-opacity = 1.0;
       inactive-opacity-override = false;
       corner-radius = 8;
     };
