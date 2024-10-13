@@ -11,6 +11,7 @@
     ../modules/theme.nix
     ../modules/git.nix
     ../modules/wezterm.nix
+    ../modules/vm.nix
     ../modules/neofetch
   ];
 
