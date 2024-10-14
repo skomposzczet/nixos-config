@@ -16,6 +16,8 @@
     planify
     gnome.nautilus
     gnome.eog
+    libreoffice-qt
+    discord
     
     # games
     dwarf-fortress-packages.dwarf-fortress-full
