@@ -12,6 +12,7 @@
     ../modules/git.nix
     ../modules/wezterm.nix
     ../modules/vm.nix
+    ../modules/direnv.nix
     ../modules/neofetch
   ];
 
