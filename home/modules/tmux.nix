@@ -18,6 +18,7 @@
         bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
 
         set-option -g renumber-windows on
+        set-option -g allow-rename off
     '';
     plugins = with pkgs; [ 
       {
