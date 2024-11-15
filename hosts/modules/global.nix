@@ -29,4 +29,10 @@
   services.printing.enable = true;
 
   nix.settings.auto-optimise-store = true;
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 14d";
+  };
+  boot.loader.systemd-boot.configurationLimit = 10;
 }
