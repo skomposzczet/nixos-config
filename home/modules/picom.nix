@@ -30,6 +30,9 @@
       frame-opacity = 1.0;
       inactive-opacity-override = false;
       corner-radius = 8;
+      rounded-corners-exclude = [
+        "window_type = 'desktop'"
+      ];
     };
   };
 }
