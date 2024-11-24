@@ -3,47 +3,35 @@
   config,
   ...
 }: {
+  home.pointerCursor = {
+    package = pkgs.rose-pine-cursor;
+    name = "BreezeX-RosePine-Linux";
+    size = 16;
+    gtk.enable = true;
+  };
   gtk = {
     enable = true;
-    theme = {
-      name = "Catppuccin-Mocha-Compact-Rosewater-Dark";
-      package = pkgs.catppuccin-gtk.override {
-        accents = [ "rosewater" ];
-        size = "compact";
-        tweaks = [ "rimless" ];
-        variant = "mocha";
-      };
-    };
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.catppuccin-papirus-folders.override {
-        accent = "teal";
-        flavor = "mocha";
+        accent = "peach";
+        flavor = "macchiato";
       };
     };
-    cursorTheme = {
-      name = "Catppuccin-Mocha-Rosewater-Cursors";
-      package = pkgs.catppuccin-cursors.mochaRosewater;
-      size = 16;
+    theme = {
+      name = "catppuccin-mocha-rosewater-standard";
+      package = pkgs.catppuccin-gtk.override {
+        variant = "mocha";
+        accents = [ "rosewater" ];
+      };
     };
-  };
-
-  xdg.configFile = {
-    "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
-    "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
-    "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
-  };
-
-  home.pointerCursor = {
-    gtk.enable = true;
-    name = "Catppuccin-Mocha-Rosewater-Cursors";
-    package = pkgs.catppuccin-cursors.mochaRosewater;
-    size = 16;
+    gtk3.extraConfig = {gtk-application-prefer-dark-theme = 1;};
+    gtk4.extraConfig = {gtk-application-prefer-dark-theme = 1;};
   };
 
   qt = {
     enable = true;
-    platformTheme = "gtk3";
+    platformTheme.name = "gtk3";
     style.name = "gtk2";
   };
 }

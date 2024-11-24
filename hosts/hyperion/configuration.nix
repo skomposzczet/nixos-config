@@ -14,6 +14,7 @@
     ../modules/packages.nix
     ../modules/ssh.nix
     ../modules/vm.nix
+    ../modules/bluetooth.nix
     ../modules/users/d3rfnam.nix
     ./hardware-configuration.nix
   ];

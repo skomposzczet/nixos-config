@@ -8,14 +8,10 @@
     inputs.skomposzczet-nvim.packages.${system}.default
 
     # apps
-    gnome.gnome-tweaks
     pass
     obsidian
     qbittorrent
     calibre
-    planify
-    gnome.nautilus
-    gnome.eog
     libreoffice-qt
     discord
     
@@ -23,6 +19,8 @@
     dwarf-fortress-packages.dwarf-fortress-full
 
     # media
+    gnome.nautilus
+    spaceFM
     mpv
     smplayer
     gnome-text-editor
@@ -50,7 +48,6 @@
     # wm
     networkmanagerapplet
     volctl
-    picom
     acpi
     rofi-power-menu
     gscreenshot

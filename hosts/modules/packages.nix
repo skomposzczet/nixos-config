@@ -14,6 +14,5 @@
 
     # gpg
     gnupg
-    pinentry-gnome
   ];
 }

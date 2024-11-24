@@ -17,10 +17,7 @@
     activeOpacity = 1.0;
     inactiveOpacity = 0.9;
     opacityRules = [
-      "90:class_g = 'Alacritty' && focused"
-      "60:class_g = 'Alacritty' && !focused"
       "90:class_g = 'org.wezfurlong.wezterm' && focused"
-      "60:class_g = 'org.wezfurlong.wezterm' && !focused"
     ];
 
     fade = true;

@@ -23,11 +23,11 @@
   };
 
   services.xserver = {
-    layout = "pl";
-    xkbVariant = "";
+    xkb.layout = "pl";
+    xkb.variant = "";
   };
 
-  services.xserver.libinput = {
+  services.libinput = {
     enable = true;
     touchpad = {
       clickMethod = "buttonareas";
