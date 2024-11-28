@@ -11,6 +11,7 @@
     enable = true;
   
     windowManager.awesome = {
+      package = pkgs.myAwesome;
       enable = true;
       luaModules = with pkgs.luaPackages; [
         luarocks # is the package manager for Lua modules

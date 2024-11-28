@@ -24,5 +24,21 @@
         ];
       });
     })
+
+    (final: prev: {
+        myAwesome = prev.awesome.overrideAttrs (old: {
+          pname = "myAwesome";
+          src = prev.fetchFromGitHub {
+            owner = "awesomeWM";
+            repo = "awesome";
+            rev = "392dbc2";
+            sha256 = "sha256:093zapjm1z33sr7rp895kplw91qb8lq74qwc0x1ljz28xfsbp496";
+          };
+          patches = [];
+          postPatch = ''
+            patchShebangs tests/examples/_postprocess.lua
+          '';
+      });
+    })
   ];
 }
