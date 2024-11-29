@@ -5,7 +5,7 @@
     ../modules/awesomewm
     ../modules/alacritty
     ../modules/tmux.nix
-    ../modules/picom.nix
+    ../modules/picom
     ../modules/packages.nix
     ../modules/rofi.nix
     ../modules/theme.nix
