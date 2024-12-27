@@ -26,7 +26,23 @@
       };
     };
     gtk3.extraConfig = {gtk-application-prefer-dark-theme = 1;};
+    gtk3.extraCss = ''
+      menu,
+      .csd .menu,
+      .csd .dropdown,
+      .csd .context-menu {
+          border-radius: 9px;
+      }
+    '';
     gtk4.extraConfig = {gtk-application-prefer-dark-theme = 1;};
+    gtk4.extraCss = ''
+      menu,
+      .csd .menu,
+      .csd .dropdown,
+      .csd .context-menu {
+          border-radius: 9px;
+      }
+    '';
   };
 
   qt = {
