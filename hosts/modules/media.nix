@@ -3,9 +3,8 @@
   outputs,
   ...
 }: {
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;

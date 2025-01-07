@@ -19,7 +19,7 @@
     dwarf-fortress-packages.dwarf-fortress-full
 
     # media
-    gnome.nautilus
+    nautilus
     spaceFM
     mpv
     smplayer
