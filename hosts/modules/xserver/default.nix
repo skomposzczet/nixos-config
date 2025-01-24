@@ -28,6 +28,8 @@
     xkb.variant = "";
   };
 
+  services.xserver.autoRepeatInterval = 40;
+
   services.libinput = {
     enable = true;
     touchpad = {

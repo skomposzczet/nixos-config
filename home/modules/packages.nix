@@ -33,7 +33,7 @@
     lf
 
     # tools
-    imagemagick
+    imagemagickBig
     pciutils
     usbutils
     sysstat

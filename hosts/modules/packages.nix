@@ -10,6 +10,7 @@
     xclip
     file
     pavucontrol
+    alsa-utils
     ntfs3g
 
     # gpg
