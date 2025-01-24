@@ -10,7 +10,9 @@
           return 'wezterm'
         end),
 
-        color_scheme = "Catppuccin Mocha",
+        front_end = "WebGpu", -- 24.11 workaround https://github.com/NixOS/nixpkgs/issues/336069
+
+        color_scheme = "Catppuccin Macchiato",
         font = wezterm.font("UbuntuMono Nerd Font", { weight = "Regular", italic = false }),
         font_size = 12.0,
         freetype_load_flags = 'FORCE_AUTOHINT',
