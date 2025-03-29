@@ -9,7 +9,7 @@
   ];
   services.xserver = {
     enable = true;
-  
+
     windowManager.awesome = {
       package = pkgs.myAwesome;
       enable = true;

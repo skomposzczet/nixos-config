@@ -20,7 +20,7 @@
 
     # media
     nautilus
-    spaceFM
+    pcmanfm 
     mpv
     smplayer
     gnome-text-editor
@@ -34,6 +34,7 @@
 
     # tools
     imagemagickBig
+    gimp
     pciutils
     usbutils
     sysstat
