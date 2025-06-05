@@ -25,6 +25,8 @@
 
         warn_about_missing_glyphs = false,
 
+        selection_word_boundary = ' \t\n{}[]()"\'`,:',
+
         default_prog = { "zsh" },
     }
     '';
