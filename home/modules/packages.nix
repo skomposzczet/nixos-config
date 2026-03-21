@@ -31,6 +31,7 @@
     # cmd
     zsh
     lf
+    fzf
 
     # tools
     imagemagickBig
