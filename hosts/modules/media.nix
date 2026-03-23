@@ -3,7 +3,7 @@
   outputs,
   ...
 }: {
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   hardware.graphics.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
