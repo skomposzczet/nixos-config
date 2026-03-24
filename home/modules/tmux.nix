@@ -35,7 +35,7 @@ pkgs,
 
         set-option -g status-style bg=$base
 
-        set -g status-right "#?client_prefix,#[bg=default fg=$peach],#[bg=default fg=$mauve]#h"
+        set -g status-right "#{?client_prefix,#[bg=default fg=$peach],#[bg=default fg=$mauve]}#h"
         set -g status-left ""
 
         set -g status-justify left
