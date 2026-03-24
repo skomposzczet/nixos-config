@@ -31,10 +31,11 @@
           src = prev.fetchFromGitHub {
             owner = "awesomeWM";
             repo = "awesome";
-            rev = "392dbc2";
-            sha256 = "sha256:093zapjm1z33sr7rp895kplw91qb8lq74qwc0x1ljz28xfsbp496";
+            rev = "41473c05ed9e85de66ffb805d872f2737c0458b6";
+            sha256 = "sha256-dGceJ5cAxDSUPCqXYAZgzEeC9hd7GQMYPex7nCZ8SEg";
           };
           patches = [];
+          cmakeFlags = (old.cmakeFlags or []) ++ ["-DCMAKE_POLICY_VERSION_MINIMUM=3.5"];
           postPatch = ''
             patchShebangs tests/examples/_postprocess.lua
           '';

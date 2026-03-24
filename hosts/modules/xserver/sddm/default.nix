@@ -1,16 +1,24 @@
 {
-  inputs,
-  outputs,
-  pkgs,
-  ...
+inputs,
+outputs,
+pkgs,
+...
 }: {
-  environment.systemPackages = with pkgs; [
-    catppuccin-sddm-corners
-  ];
+  services.displayManager.defaultSession = "none+awesome";
 
-  services.displayManager = {
-    sddm.enable = true;
-    sddm.theme = "catppuccin-sddm-corners";
-    defaultSession = "none+awesome";
+  environment.systemPackages = [(
+    pkgs.catppuccin-sddm.override {
+      flavor = "macchiato";
+      accent = "mauve";
+      font  = "Noto Sans";
+      fontSize = "9";
+      loginBackground = true;
+    }
+  )];
+
+  services.displayManager.sddm = {
+    enable = true;
+    theme = "catppuccin-macchiato-mauve";
+    package = pkgs.kdePackages.sddm;
   };
 }
