@@ -1,6 +1,6 @@
 {
-  pkgs,
-  ...
+pkgs,
+...
 }: {
   programs.tmux = {
     enable = true;
@@ -19,25 +19,41 @@
 
         set-option -g renumber-windows on
         set-option -g allow-rename off
-    '';
-    plugins = with pkgs; [ 
-      {
-        plugin = tmuxPlugins.catppuccin;
-        extraConfig = /* bash */ ''
-            set -g @catppuccin_flavour 'mocha'
 
-            set -g @catppuccin_window_default_text "#W"
-            set -g @catppuccin_window_current_text "#W"
+        overlay="#6e738d"
+        surface="#15161e"
 
-            set -g @catppuccin_status_left_separator  ""
-            set -g @catppuccin_status_right_separator " "
-            set -g @catppuccin_status_fill "all"
-            set -g @catppuccin_status_connect_separator "yes"
+        peach="#fab388"
+        mauve="#cba6f7"
+        teal="#94e2d5"
 
-            set -g status-left ""
-            set -gF status-right "#{E:@catppuccin_status_application}#{E:@catppuccin_status_session}"
+        base="#24273a"
+        surface="#313244"
+        mantle="#181825"
+
+        text="#cdd6f4"
+
+        set-option -g status-style bg=$base
+
+        set -g status-right "#?client_prefix,#[bg=default fg=$peach],#[bg=default fg=$mauve]#h"
+        set -g status-left ""
+
+        set -g status-justify left
+
+        set -g window-status-format "#[fg=$mauve,bg=$surface]#[fg=$surface,bg=$mauve]#I #[fg=$text,bg=$surface] #W#[fg=$surface,bg=default]"
+        set -g window-status-current-format "#[fg=$peach,bg=$surface]#[fg=$surface,bg=$peach]#I #[fg=$text,bg=$surface] #W#[fg=$surface,bg=default]"
+        set -g window-status-separator ' '
+
+        set -g message-command-style bg=default,fg=$text
+        set -g message-style bg=default,fg=$text
+        set -g mode-style bg=$surface,fg=$teal
+
+        set -g pane-active-border-style fg=$mauve,bg=default
+        set -g pane-border-style fg=$base,bg=$base
+
+        set -g default-terminal "tmux-256color"
         '';
-      }
+    plugins = with pkgs; [ 
       {
         plugin = tmuxPlugins.yank;
       }
