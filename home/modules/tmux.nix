@@ -35,13 +35,19 @@ pkgs,
 
         set-option -g status-style bg=$base
 
-        set -g status-right "#{?client_prefix,#[bg=default fg=$peach],#[bg=default fg=$mauve]}#h"
+        set -g status-right "#[fg=$mauve,bg=default]tmuxin at #{?client_prefix,#[bg=default fg=$peach],#[bg=default fg=$mauve]}#h"
         set -g status-left ""
 
         set -g status-justify left
 
-        set -g window-status-format "#[fg=$mauve,bg=$surface]#[fg=$surface,bg=$mauve]#I #[fg=$text,bg=$surface] #W#[fg=$surface,bg=default]"
-        set -g window-status-current-format "#[fg=$peach,bg=$surface]#[fg=$surface,bg=$peach]#I #[fg=$text,bg=$surface] #W#[fg=$surface,bg=default]"
+        # #!~M not handled, not sure if I ever see them
+        sed_cmd="sed 's/*Z/#[nodim]󰡬 /;s/*/#[nodim]󰛐 /;s/Z//;s/-/󱣾 /;s/^$/󰛑 /'"
+        flags="#[dim]#(printf '%%s\n' '#F' | $sed_cmd )#[nodim]"
+        right_sep="#[fg=$surface,bg=default]"
+        left_sep="#[fg=$mauve,bg=$surface]"
+        left_sep_current="#[fg=$peach,bg=$surface]"
+        set -g window-status-format "$left_sep#[fg=$surface,bg=$mauve,bold]#I #[fg=$text,bg=$surface,nobold] #W $flags$right_sep"
+        set -g window-status-current-format "$left_sep_current#[fg=$surface,bg=$peach,bold]#I #[fg=$text,bg=$surface,nobold] #W $flags$right_sep"
         set -g window-status-separator ' '
 
         set -g message-command-style bg=default,fg=$text
