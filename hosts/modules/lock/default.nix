@@ -16,4 +16,12 @@ in {
     enable = true;
     lockerCommand = "${nix-i3-lock}/bin/nix-i3-lock";
   };
+
+  services.logind.settings.Login = {
+    HandleLidSwitch = "lock";
+    HandleLidSwitchExternalPower = "lock";
+    HandleLidSwitchDocked = "ignore";
+
+    LidSwitchIgnoreInhibited = "no";
+  };
 }

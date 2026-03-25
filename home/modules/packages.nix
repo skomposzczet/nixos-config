@@ -16,7 +16,8 @@
     discord
     
     # games
-    dwarf-fortress-packages.dwarf-fortress-full
+    # TODO
+    # dwarf-fortress-packages.dwarf-fortress-full
 
     # media
     nautilus

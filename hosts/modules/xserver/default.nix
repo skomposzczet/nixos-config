@@ -54,4 +54,11 @@
   services.autorandr = {
     enable = true;
   };
+
+  services.xserver.displayManager.sessionCommands = ''
+    ${pkgs.xorg.xset}/bin/xset s off -dpms
+    ${pkgs.xorg.xset}/bin/xset r rate 660 25
+    ${pkgs.autorandr}/bin/autorandr --change
+  '';
+
 }
