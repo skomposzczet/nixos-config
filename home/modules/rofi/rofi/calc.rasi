@@ -1,0 +1,16 @@
+@import "./generic.rasi"
+
+listbox {
+    children:                    [ "message" ];
+    padding:                     30px;
+}
+message {
+    background-color:            transparent;
+    expand: true;
+}
+textbox {
+    background-color:            inherit;
+    vertical-align:              0.0;
+    horizontal-align:            0.0;
+}
+

@@ -7,7 +7,7 @@
     ../modules/tmux.nix
     ../modules/picom
     ../modules/packages.nix
-    ../modules/rofi.nix
+    ../modules/rofi
     ../modules/theme.nix
     ../modules/git.nix
     ../modules/wezterm.nix

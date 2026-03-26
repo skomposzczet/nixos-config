@@ -1,5 +1,5 @@
 diff --git a/rofi-power-menu b/rofi-power-menu
-index 13e17e3..f2666b5 100755
+index 9484f68..99bdd95 100755
 --- a/rofi-power-menu
 +++ b/rofi-power-menu
 @@ -16,7 +16,7 @@ set -u
@@ -29,3 +29,56 @@ index 13e17e3..f2666b5 100755
  actions[suspend]="systemctl suspend"
  actions[hibernate]="systemctl hibernate"
  actions[reboot]="systemctl reboot"
+@@ -53,6 +53,7 @@ confirmations=(reboot shutdown logout)
+ dryrun=false
+ showsymbols=true
+ showtext=true
++eng=false
+ 
+ function check_valid {
+     option="$1"
+@@ -68,7 +69,7 @@ function check_valid {
+ }
+ 
+ # Parse command-line options
+-parsed=$(getopt --options=h --longoptions=help,dry-run,confirm:,choices:,choose:,symbols,no-symbols,text,no-text,symbols-font: --name "$0" -- "$@")
++parsed=$(getopt --options=h --longoptions=help,eng,dry-run,confirm:,choices:,choose:,symbols,no-symbols,text,no-text,symbols-font: --name "$0" -- "$@")
+ if [ $? -ne 0 ]; then
+     echo 'Terminating...' >&2
+     exit 1
+@@ -88,6 +89,7 @@ while true; do
+             echo "  rofi -show menu -modi \"menu:rofi-power-menu --choices=shutdown/reboot\""
+             echo
+             echo "Available options:"
++            echo "  --eng                Use english version text instead of polish"
+             echo "  --dry-run            Don't perform the selected action but print it to stderr."
+             echo "  --choices CHOICES    Show only the selected choices in the given order. Use /"
+             echo "                       as the separator. Available choices are lockscreen,"
+@@ -115,6 +117,10 @@ while true; do
+             echo "  -h,--help            Show this help text."
+             exit 0
+             ;;
++        "--eng")
++            eng=true
++            shift 1
++            ;;
+         "--dry-run")
+             dryrun=true
+             shift 1
+@@ -166,6 +172,15 @@ while true; do
+     esac
+ done
+ 
++if [ "$eng" = "false" ]
++then
++    texts[lockscreen]="zablokuj"
++    texts[logout]="wyloguj"
++    texts[suspend]="uśpij"
++    texts[reboot]="uruchom ponownie"
++    texts[shutdown]="wyłącz"
++fi
++
+ if [ "$showsymbols" = "false" -a "$showtext" = "false" ]
+ then
+     echo "Invalid options: cannot have --no-symbols and --no-text enabled at the same time." >&2
+

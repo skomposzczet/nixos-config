@@ -1,0 +1,167 @@
+@import "./clr/catppuccin.rasi"
+
+/*****----- Configuration -----*****/
+configuration {
+    modi:                       "drun,window";
+    show-icons:                 true;
+    window-format:              "{w} · {c} · {t}";
+}
+
+/*****----- Global Properties -----*****/
+* {
+    text-selected:               @background;
+    text:                        @foreground;
+}
+
+/*****----- Main Window -----*****/
+window {
+    fullscreen:                  false;
+    transparency:                "real";
+    cursor:                      "default";
+    background-color:            black / 45%;
+    border:                      0px;
+    width:                       100%;
+    height:                      100%;
+    margin:                      0px;
+    padding:                     0px;
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    enabled:                     true;
+    background-color:            transparent;
+    orientation:                 vertical;
+    children:                    [ "inputbar",  "message", "listview" ];
+
+    spacing:                      16px;
+    margin:                       48px;
+}
+
+inputbar {
+    children:                    [ "dummy", "entry", "dummy" ];
+    border-radius:               24px;
+    background-color:            transparent;
+
+    spacing:                     0px;
+    padding:                     150px 640px;
+    margin:                      16px;
+    background-image:            url("./img/cowboy.png", width);
+    orientation:                 vertical;
+}
+
+listview {
+    spacing:                     20px;
+    padding:                     20px;
+    background-color:            transparent;
+    orientation:                 vertical;
+    children:                    [ "listview" ];
+}
+
+dummy {
+    background-color:            transparent;
+}
+
+/*****----- Entry -----*****/
+entry {
+    cursor:                      inherit;
+    cursor-color:                @placeholder;
+    placeholder:                 " w oknie próbuję wydostać się ze szkła";
+    placeholder-color:           @placeholder;
+
+    border-radius:               12px;
+    background-color:            black / 48%;
+    text-color:                  @text;
+
+    padding:                     16px;
+    margin:                      0px;
+}
+
+
+/*****----- Listview -----*****/
+listview {
+    enabled:                     true;
+    columns:                     1;
+    lines:                       8;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                false;
+    fixed-columns:               true;
+    
+    spacing:                     10px;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    cursor:                      "default";
+}
+
+/*****----- Elements -----*****/
+element {
+    enabled:                     true;
+    spacing:                     15px;
+    padding:                     8px;
+    border-radius:               10px;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    cursor:                      pointer;
+}
+/* TODO */
+element normal.normal {
+    background-color:            inherit;
+    text-color:                  inherit;
+}
+element normal.urgent {
+    background-color:            @urgent;
+    text-color:                  @background;
+}
+element normal.active {
+    background-color:            @active;
+    text-color:                  @background;
+}
+element selected.normal {
+    background-color:            @selected;
+    text-color:                  @background;
+}
+element selected.urgent {
+    background-color:            @urgent;
+    text-color:                  @background;
+}
+element selected.active {
+    background-color:            @urgent;
+    text-color:                  @foreground;
+}
+element-icon {
+    background-color:            transparent;
+    text-color:                  inherit;
+    size:                        32px;
+    cursor:                      inherit;
+}
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}
+
+/*****----- Message -----*****/
+message {
+    background-color:            transparent;
+}
+textbox {
+    padding:                     15px;
+    border-radius:               10px;
+    background-color:            @background-alt;
+    text-color:                  @foreground;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}
+error-message {
+    padding:                     15px;
+    border-radius:               20px;
+    background-color:            @background;
+    text-color:                  @foreground;
+}
+
+
